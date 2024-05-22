@@ -7,6 +7,7 @@ export default function App() {
     <View style={styles.container}>
       <Text style={styles.title}>DORA APPLICATION</Text>
       <Text style={styles.description}>Welcome to DORA APPLICATION</Text>
+      <Text style={styles.Robert}>Lead Developer:Mondoa Robert</Text>
       <StatusBar style="auto" />
     </View>
   );
@@ -19,4 +20,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  Robert:{
+    color:"white",
+    backgroundColor:"brown"
+  }
 });

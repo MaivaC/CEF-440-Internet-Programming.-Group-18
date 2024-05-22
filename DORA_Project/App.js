@@ -5,9 +5,8 @@ import { StyleSheet, Text, View } from "react-native";
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Bug Ninza</Text>
-
-      <Text style={styles.description}>Best Platform for programming</Text>
+      <Text style={styles.title}>DORA APPLICATION</Text>
+      <Text style={styles.description}>Welcome to DORA APPLICATION</Text>
       <StatusBar style="auto" />
     </View>
   );

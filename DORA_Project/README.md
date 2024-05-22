@@ -9,6 +9,8 @@ npm install i18next react-i18next
 
 
 # Deployment commands
-npm install -g eas-cli
+npm install -g eas-cli 
+#
 eas login
+#
 eas build --platform android

@@ -30,9 +30,7 @@ const Csignup = () => {
   return (
     <View style={styles.Container1}>
    
-     
-     <View styles={styles.header}><Text styles={styles.header}>huuh</Text></View>
-     
+         
      <View styles={styles.header2}><Text style={styles.Text}>Create an Account</Text>
  
 
@@ -90,13 +88,15 @@ const styles = StyleSheet.create({
     fontFamily: "Arial",
     display: "flex",
     fontWeight: "bolder",
+    justifyContent:"center",
+    alignContent:"center"
   },
   
   TextInput: {
     backgroundColor: "transparent",
     color: "black",
    padding:10,
-   width:250,
+   width:300,
   paddingHorizontal:0,
     borderRadius:10,
     marginBottom: 20,
@@ -108,12 +108,13 @@ const styles = StyleSheet.create({
   Text: {
 fontWeight:"bold",
    textAlign:"center",
-   paddingBottom:20
+   paddingBottom:20,
+   fontSize:35
 
   },
   Button:{
 backgroundColor:"red",
-marginLeft:"5%",
+marginLeft:"14%",
 padding:10,
 width:200,
 

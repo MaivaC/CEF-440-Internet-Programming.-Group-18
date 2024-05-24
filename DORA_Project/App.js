@@ -3,11 +3,13 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Csignup from "./Dora_plate/authentication/action/signUp";
 import Csignin from "./Dora_plate/authentication/action/login";
+import Dashboard from "./Telemedicineapp/Dashboard";
+import Medikdrawer from "./Telemedicineapp/Drawer";
 
 export default function App() {
   return (
     <View style={styles.container}>
-   <Csignin/>
+<Medikdrawer/>
       <StatusBar style="auto" />
     </View>
   );

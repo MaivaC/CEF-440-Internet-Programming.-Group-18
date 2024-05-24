@@ -4,12 +4,13 @@ import { StyleSheet, Text, View } from "react-native";
 import Csignup from "./Dora_plate/authentication/action/signUp";
 import Csignin from "./Dora_plate/authentication/action/login";
 import Dashboard from "./Telemedicineapp/Dashboard";
-import Medikdrawer from "./Telemedicineapp/Drawer";
+import CMedikdrawer from "./Dora_plate/screens/Clientcitizen/Doradrawer";
+
 
 export default function App() {
   return (
     <View style={styles.container}>
-<Medikdrawer/>
+<CMedikdrawer/>
       <StatusBar style="auto" />
     </View>
   );

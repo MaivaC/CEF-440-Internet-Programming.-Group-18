@@ -7,6 +7,7 @@ import {
   StyleSheet,
   TextInput,
   Button,
+  ScrollView
 } from "react-native";
 import map from "../assets/map1.png"
 import castle from "../assets/Castle.png"
@@ -22,20 +23,22 @@ const Chomepage = () => {
     </View>
     <View style={styles.container1}><View style={styles.row}>
     <View style={styles.row2}><Text style={styles.Text2}>NearBy Shelters</Text><Text style={styles.Text3}>Show All</Text></View>
-    <TouchableOpacity style={styles.shape}><Text style={styles.shapecolor}>3km</Text></TouchableOpacity>
-    <Image source={castle} alt="New Map" style={styles.image2}/>
+    <View style={styles.row2}><TouchableOpacity style={styles.shape}><Text style={styles.shapecolor}>{'<'}3km</Text></TouchableOpacity>
+    <TouchableOpacity style={styles.shape}><Text style={styles.shapecolor}>3-10km</Text></TouchableOpacity>
+    <TouchableOpacity style={styles.shape}><Text style={styles.shapecolor}>{'>'}3km</Text></TouchableOpacity>
+   </View> 
+  
+   <Image source={castle} alt="NewCastle" style={styles.image2}/>
     
     </View>
    </View>
     <View style={styles.container1}>
-
-     <Image source={row1} style={styles.image3} alt="row1"/>
+<View style={styles.head}>  
+ <Image source={row1} style={styles.image3} alt="row1"/>
     <Image source={row2} style={styles.image3} alt="rowr"/>
     <Image  source={row3} style={styles.image3} alt="row1"/>
-
-   
-    
-    
+    </View>
+  
     </View>
     </View>
 
@@ -44,39 +47,41 @@ const Chomepage = () => {
 
 
 const styles = StyleSheet.create({
+    head:{
+width:"100%",
+flexDirection:"row",
+marginTop:"5%",
+paddingLeft:"0%"
+
+    },
+    
     shape:{
         width:70,
         height:30,
         backgroundColor:"red",
-        borderRadius:10,
+        borderRadius:20,
         justifyContent:"center",
-        alignItems:"center"
+        alignItems:"center",
+        marginRight:20,
+        marginLeft:8,
+        borderWidth:0,
+        borderColor:"white"
     },
 shapecolor:{
-    color:"white"
+    color:"white",
+  
 },
     container1:{
-
 height:"35%",
 borderWidth:1,
 borderRadius:20,
 width:"100%",
 backgroundColor:"white",
 flexDirection:"row",
-marginLeft:5,
-marginTop:10
-
+marginTop:10,
+borderColor:"white"
     },
-    container2:{
-        justifyContent:"center",
-        alignContent:"center",
-        height:"35%",
-        borderWidth:1,
-        borderRadius:20,
-        width:"100%",
-        backgroundColor:"white"
-        
-            },
+   
 row:{
 
 flexDirection:"column"
@@ -94,9 +99,10 @@ row2:{
     },
     image2:{
 
-        width:"130%",
-        height:"90%",
-        borderRadius:10,
+        width:"105%",
+        height:"70%",
+        borderRadius:20,
+    
     },
     image3:{
 
@@ -114,6 +120,7 @@ height:"40%",
         width:"100%",
  backgroundColor: "white",
 justifyContent:"center",
+borderColor:"white",
     },
 
     container3:{
@@ -123,6 +130,7 @@ justifyContent:"center",
 
     Container1: {
 
+        borderColor:"white",
       backgroundColor: "white",
       marginTop: 20,
       marginBottom: 120,

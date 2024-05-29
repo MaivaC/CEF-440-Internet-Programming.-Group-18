@@ -7,12 +7,14 @@ import Dashboard from "./Telemedicineapp/Dashboard";
 import CMedikdrawer from "./Dora_plate/screens/Clientcitizen/Doradrawer";
 import Shelter from "./Dora_plate/screens/Clientcitizen/routes/Findshelterpage";
 import Itenary from "./Dora_plate/screens/Clientcitizen/routes/itenary";
+import Profile from "./Dora_plate/screens/Clientcitizen/routes/Profile";
+import UserProfileForm from "./Dora_plate/Test";
 
 
 export default function App() {
   return (
     <View style={styles.container}>
-<Itenary/>
+<Chats/>
       <StatusBar style="auto" />
     </View>
   );

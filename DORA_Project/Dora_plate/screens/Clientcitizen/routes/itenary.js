@@ -9,20 +9,23 @@ import {
 } from "react-native";
 import image from "../assets/circularmap.png"
 import image2 from "../assets/Itenary.png"
+import Icon from "react-native-vector-icons/FontAwesome"
+import Scon from "react-native-vector-icons/MaterialIcons"
 
 const Itenary = () => {
     return(
     <View style={styles.container}>
 
    <View style={styles.Container1}><ImageBackground  style={styles.background} source={image}>
-   <TouchableOpacity styles={styles.Circleshape}>
-   <Text style={styles.fonts}>{'<'}</Text></TouchableOpacity></ImageBackground></View>
+   <TouchableOpacity style={styles.button}>
+        <Scon name="chevron-left" size={30} color="#990000" />
+      </TouchableOpacity></ImageBackground></View>
    <View style={styles.Container2}>
 <Image source={image2} style={NewStyles.Image} alt="image2"  />
-<Text style={NewStyles.Text1}>University of Buea Shelter</Text>
-<Text style={NewStyles.Text2}>First aid Kits</Text>
-<Text style={NewStyles.Text2}>Food supply</Text>
-<Text style={NewStyles.Text2}>Pets are not allowed</Text>
+<Text style={NewStyles.Text1}>     University of Buea Shelter</Text>
+<Text style={NewStyles.Text2}><Icon name="medkit" size={20} color="#990000" />   First aid Kits</Text>
+<Text style={NewStyles.Text2}><Icon name="cutlery" size={20} color="#990000" />    Food supply</Text>
+<Text style={NewStyles.Text2}><Icon name="ban" size={20} color="#990000" />    Pets are not allowed</Text>
 
    </View>
      <View style={styles.container2}><TouchableOpacity style={styles.back}><Text style={{color:"white",textAlign:"center"}}>Itenary</Text></TouchableOpacity></View>
@@ -67,12 +70,22 @@ Text2:{
  const styles = StyleSheet.create({
     back:{
 
-        backgroundColor:"blue",
+        backgroundColor:"#990000",
         width:240,
         height:"100%",
         justifyContent:"center",
         alignItems:"center"
     },
+    button: {
+        width: 60,
+        height: 60,
+        borderRadius: 25,
+        backgroundColor: '#FFFFFF',
+        justifyContent: 'center',
+        alignItems: 'center',
+  
+        position: 'absolute',
+      },
 
 Tablehead:{
     flexDirection: 'row', // Align items in a row

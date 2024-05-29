@@ -5,13 +5,14 @@ import Csignup from "./Dora_plate/authentication/action/signUp";
 import Csignin from "./Dora_plate/authentication/action/login";
 import Dashboard from "./Telemedicineapp/Dashboard";
 import CMedikdrawer from "./Dora_plate/screens/Clientcitizen/Doradrawer";
-import Shelter from "./Dora_plate/screens/Clientcitizen/routes/shelterpage";
+import Shelter from "./Dora_plate/screens/Clientcitizen/routes/Findshelterpage";
+import Itenary from "./Dora_plate/screens/Clientcitizen/routes/itenary";
 
 
 export default function App() {
   return (
     <View style={styles.container}>
-<Shelter/>
+<Itenary/>
       <StatusBar style="auto" />
     </View>
   );

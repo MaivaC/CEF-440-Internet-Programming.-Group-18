@@ -24,29 +24,31 @@ const Shelter = () => {
    <View style={styles.Container1}><ImageBackground  style={styles.background} source={image}>
    <TouchableOpacity styles={styles.Circleshape}>
    <Text style={styles.fonts}>{'<'}</Text></TouchableOpacity></ImageBackground></View>
-   <View style={styles.Container2}><Text>Hi Welcome to the shelter page</Text>
+   <View style={styles.Container2}><Text></Text>
 <View style={styles.row}>
 <Text style={styles.Text1}>Flooding  </Text>
-  <View style={styles.row1}><Icon name="error" size={32} color="red" style={styles.icon}  /><Text style={styles.Text2}>Danger</Text></View></View>
+  <View style={styles.row1}><Icon name="error" size={32} color="red" style={styles.icon}/><Text style={styles.Text2}>Danger</Text></View></View>
   <Text>Buea,Cameroon</Text> 
-  <View styles={styles.Tablehead}>
+  <View style={styles.row}>
 
-  <Text styles={styles.col1}>Time </Text>
+<Text styles={styles.col1}>Time </Text>
   <Text  styles={styles.col2}>Speed </Text> 
-   <Text  styles={styles.col3}>Radius</Text>
+   <Text  styles={styles.col3}>Radius</Text></View>
 
-  </View>
+
   <View styles={styles.Tablecontent}></View>
-  <View style={styles.container1}>
-   
+
+ <View style={styles.container1}>
+    
     <View style={styles.head}>  
+    
      <Image source={row3} style={styles.image3} alt="row1"/>
         <Image source={row2} style={styles.image3} alt="rowr"/>
         <Image  source={row1} style={styles.image3} alt="row1"/>
         </View>
       
         </View>
-   
+   <View style={styles.container2}><TouchableOpacity style={styles.back}><Text style={{color:"white",textAlign:"center"}}>Find Me a Shelter</Text></TouchableOpacity></View>
    
    </View>
    
@@ -60,9 +62,20 @@ const Shelter = () => {
  export default Shelter;
 
  const styles = StyleSheet.create({
+    back:{
+
+        backgroundColor:"blue",
+        width:290,
+        height:"36%",
+        justifyContent:"center",
+        alignItems:"center"
+    },
 
 Tablehead:{
-flexDirection:"row"
+    flexDirection: 'row', // Align items in a row
+    justifyContent: 'space-between', // Distribute space between items
+    padding: 10,
+    backgroundColor: '#f0f0f0',
 
 },
     container:{
@@ -70,6 +83,13 @@ flex:1,
 marginTop:"10"
 
     },
+    container2:{
+      padding:0,
+      margin:0,
+ alignItems:"center",
+    justifyContent:"center"   
+    
+            },
     container1:{
         height:"80%",
         borderWidth:1,
@@ -87,7 +107,7 @@ marginTop:"10"
         marginTop:0,
         backgroundColor:"blue",
         width:410,
-        height:"60%"
+        height:"45%"
     },
     Container2:{
       
@@ -129,9 +149,9 @@ marginTop:"10"
 
     head:{
         width:"100%",
+        padding:0,
         flexDirection:"row",
-        marginTop:"5%",
-        paddingLeft:"0%"
+        marginTop:"1%",
         
             },
 Text1:{
@@ -152,7 +172,8 @@ Text2:{
 },
 row:{
     flexDirection:"row",
-    width:"100%"
+    width:"100%",
+
 },
 row1:{
 flexDirection:"row",
@@ -163,16 +184,25 @@ icon:{
 paddingBottom:"auto",
 marginRight:10
 },
-col1:{
-textAlign:"left"
+col1: {
+ // Flex property to control the width
+    textAlign: 'center', // Center the text horizontally
+    fontWeight: 'bold',
+    marginHorizontal: 5, // Example styling
+  },
+  col2: {
 
-},
-col2:{
-textAlign:"center"
-},
-col3:{
-textAlign:"right"
-}
+    textAlign: 'center',
+    fontWeight: 'bold',
+    marginHorizontal: 5,
+  },
+  col3: {
+alignSelf:"flex-end",
+    textAlign: 'right',
+    fontWeight: 'bold',
+    marginLeft:100,
+    marginHorizontal: 5,
+  },
 
 
 })

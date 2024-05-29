@@ -7,16 +7,18 @@ import {
   MaterialCommunityIcons,
 } from "react-native-vector-icons";
 import CDashboard from "./Dashboard";
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const Drawer = createDrawerNavigator();
 
 function CMedikdrawer() {
   return (
     <View style={styles.container}>
-      <Text>Hi</Text>
-      <NavigationContainer>
+      
+      <NavigationContainer >
         <Drawer.Navigator
           drawerContent={(props) => <CustomDrawerContent {...props} />}
+          drawerStyle={{ height: 50 }} 
         >
           <Drawer.Screen name="HOME" component={CDashboard} />
           <Drawer.Screen name="Article" component={SettingsScreen} />
@@ -25,6 +27,59 @@ function CMedikdrawer() {
     </View>
   );
 }
+
+
+
+
+///Other important connective codes
+const CustomDrawerContent = ({ navigation }) => {
+  return (
+    <View style={{ flex: 1 }}>
+      <View
+        style={{
+          flexDirection: "column",
+          paddingLeft: 5,
+   
+          height:"250px"
+        }}
+      >
+        {/* Your desired icon layout */}
+     
+        <TouchableOpacity style={styles.Buttonb}>
+          <Text style={styles.Text}>Profile</Text>
+        </TouchableOpacity>
+      
+  
+        <TouchableOpacity style={styles.Buttonb} onPress={() => navigation.navigate("Settings")}>
+        <View style={styles.iconContainer}>
+        <Icon name="home" size={20} color="#fff" style={styles.icon} />
+          <Text style={styles.Text}>Home</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.Buttonb} onPress={() => navigation.navigate("Settings")}>
+          <Text style={styles.Text}> Chats</Text>
+        </TouchableOpacity>
+   
+        <TouchableOpacity style={styles.Buttonb} onPress={() => navigation.navigate("Settings")}>
+          <Text style={styles.Text}>Donations</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.Buttonb} onPress={() => navigation.navigate("Settings")}>
+          <Text style={styles.Text}> Prepare</Text>
+        </TouchableOpacity>
+        <TouchableOpacity  style={styles.Buttonb} onPress={() => navigation.navigate("Settings")}>
+          <Text style={styles.Text}> About App</Text>
+        </TouchableOpacity>
+    
+        {/* Add more icons as needed */}
+      </View>
+      {/* Rest of your drawer content (optional) */}
+    </View>
+  );
+};
+export default CMedikdrawer;
+
+
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -35,8 +90,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   Text: {
-    fontSize: 15,
+    fontSize: 40,
     paddingTop: 15,
+   
   },
   Text1: {
     fontSize: 22,
@@ -68,74 +124,69 @@ const styles = StyleSheet.create({
   marginO: {
     marginLeft: 20,
   },
+  Buttonb:{
+    backgroundColor:"#AA44FF",
+    padding:10,
+    paddingRight:5,
+    borderRadius:15,
+    alignContent:"center",
+    alignItems:"center",
+    justifyContent:"center",
+    margin:0,
+    marginTop:5,
+    marginBottom:5
+
+  },
+  iconContainer: {
+    flexDirection: 'row', // Align icon and text horizontally
+    alignItems: 'center', // Center vertically
+  }
 });
 
-const CustomDrawerContent = ({ navigation }) => {
-  return (
-    <View style={{ flex: 1 }}>
-      <View
-        style={{
-          flexDirection: "column",
-          paddingLeft: 5,
-        }}
-      >
-        {/* Your desired icon layout */}
-        <TouchableOpacity style={styles.touchable}>
-          <Text styles={{ fontSize: 10 }}>T</Text>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Text style={styles.Text1}>Tabot Jacob</Text>
-        </TouchableOpacity>
-        <Text style={styles.Text2}>Profile</Text>
-        <TouchableOpacity onPress={() => navigation.navigate("Home")}>
-          <Text style={styles.Text}>
-            <MaterialCommunityIcons name="home" size={20} color="black" />
-            Edit profile
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
-          <Text style={styles.Text}>My appointments</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
-          <Text style={styles.Text}> History</Text>
-        </TouchableOpacity>
-        <Text style={styles.Text2}>Payments and Billings</Text>
-        <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
-          <Text style={styles.Text}> Payment History</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
-          <Text style={styles.Text}> Medik Packages</Text>
-        </TouchableOpacity>
-        <Text style={styles.Text2}>Contact & Support</Text>
-        <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
-          <Text style={styles.Text}> Language</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
-          <Text style={styles.Text}> Faqs</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
-          <Text style={styles.Text}> Settings</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
-          <Text style={styles.Text}> Help/Support</Text>
-        </TouchableOpacity>
-        <Text style={styles.Text2}>App info</Text>
-        <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
-          <Text style={styles.Text}> About</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
-          <Text style={styles.Text}> Terms and conditions</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
-          <Text style={styles.Text}>Share App</Text>
-        </TouchableOpacity>
-        {/* Add more icons as needed */}
-      </View>
-      {/* Rest of your drawer content (optional) */}
-    </View>
-  );
-};
-export default CMedikdrawer;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function Article() {}
 const SettingsScreen = ({ navigation }) => {

@@ -25,7 +25,7 @@ const Chomepage = () => {
     <View style={styles.row2}><Text style={styles.Text2}>NearBy Shelters</Text><Text style={styles.Text3}>Show All</Text></View>
     <View style={styles.row2}><TouchableOpacity style={styles.shape}><Text style={styles.shapecolor}>{'<'}3km</Text></TouchableOpacity>
     <TouchableOpacity style={styles.shape}><Text style={styles.shapecolor}>3-10km</Text></TouchableOpacity>
-    <TouchableOpacity style={styles.shape}><Text style={styles.shapecolor}>{'>'}3km</Text></TouchableOpacity>
+    <TouchableOpacity style={styles.shape}><Text style={styles.shapecolor}>{'>'}10km</Text></TouchableOpacity>
    </View> 
   
    <Image source={castle} alt="NewCastle" style={styles.image2}/>
@@ -33,6 +33,7 @@ const Chomepage = () => {
     </View>
    </View>
     <View style={styles.container1}>
+    
 <View style={styles.head}>  
  <Image source={row1} style={styles.image3} alt="row1"/>
     <Image source={row2} style={styles.image3} alt="rowr"/>

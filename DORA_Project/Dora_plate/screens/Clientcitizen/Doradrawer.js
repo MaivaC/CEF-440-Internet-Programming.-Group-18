@@ -52,7 +52,7 @@ const CustomDrawerContent = ({ navigation }) => {
   
         <TouchableOpacity style={styles.Buttonb} onPress={() => navigation.navigate("Settings")}>
         <View style={styles.iconContainer}>
-        <Icon name="home" size={20} color="#fff" style={styles.icon} />
+        <Icon name="home" size={50} color="#fff" style={styles.icon} />
           <Text style={styles.Text}>Home</Text>
           </View>
         </TouchableOpacity>
@@ -139,8 +139,17 @@ const styles = StyleSheet.create({
   },
   iconContainer: {
     flexDirection: 'row', // Align icon and text horizontally
-    alignItems: 'center', // Center vertically
-  }
+    alignItems: 'center',
+    
+     // Center vertically
+  },
+  icon: {
+paddingBottom:0,
+color:"black"
+
+
+
+  },
 });
 
 

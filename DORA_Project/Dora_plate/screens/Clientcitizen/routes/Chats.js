@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
+    
     backgroundColor: '#fff',
   },
   row: {
@@ -40,7 +40,6 @@ const styles = StyleSheet.create({
     padding: 20,
     margin: 10,
     borderRadius: 8,
-    alignItems: 'center',
     width: 150,
   },
   cardText: {
@@ -57,7 +56,7 @@ const styles = StyleSheet.create({
     height: 56,
     borderRadius: 28,
     justifyContent: 'center',
-    alignItems: 'center',
+  
   },
 });
 

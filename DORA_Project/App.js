@@ -9,12 +9,14 @@ import Shelter from "./Dora_plate/screens/Clientcitizen/routes/Findshelterpage";
 import Itenary from "./Dora_plate/screens/Clientcitizen/routes/itenary";
 import Profile from "./Dora_plate/screens/Clientcitizen/routes/Profile";
 import UserProfileForm from "./Dora_plate/Test";
+import Chats from "./Dora_plate/screens/Clientcitizen/routes/Chats";
+import Contacts from "./Dora_plate/screens/Clientcitizen/routes/Contacts";
 
 
 export default function App() {
   return (
     <View style={styles.container}>
-<Chats/>
+<Contacts/>
       <StatusBar style="auto" />
     </View>
   );

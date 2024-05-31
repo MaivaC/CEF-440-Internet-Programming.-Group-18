@@ -33,39 +33,35 @@ const styles = StyleSheet.create({
 
 Container:{
     flex:1,
-    margin:0,
+    margin:4,
 marginTop:20,
 width:"100%",
 
 },
 Table:{
-flexDirection:"row"
+flexDirection:"row",
+marginLeft:20,
 },
 Text:{
+    marginLeft:20,
     textAlign:"left",
     fontSize:18
 },
 Text1:{
-    textAlign:"left",
-    fontSize:13,
+  fontSize:13,
     marginTop:20,
-
+paddingRight:140,
     marginLeft:0,
 },
 Text2:{
-   
-    fontSize:10,
-
-
+   fontSize:10,
 },
 Button:{
-alignSelf:"flex-end",
 padding:10,
     borderRadius:20,
     borderWidth:1,
     borderColor:"brown",
-    marginRight:0,
-
+alignItems:"flex-end"
 }
 })
 

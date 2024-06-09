@@ -1,27 +1,101 @@
-import { StatusBar } from "expo-status-bar";
+
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import Csignup from "./Dora_plate/authentication/action/signUp";
-import Csignin from "./Dora_plate/authentication/action/login";
-import Dashboard from "./Telemedicineapp/Dashboard";
-import CMedikdrawer from "./Dora_plate/screens/Clientcitizen/Doradrawer";
-import Shelter from "./Dora_plate/screens/Clientcitizen/routes/Findshelterpage";
-import Itenary from "./Dora_plate/screens/Clientcitizen/routes/itenary";
-import Profile from "./Dora_plate/screens/Clientcitizen/routes/Profile";
-import UserProfileForm from "./Dora_plate/components/TEST/Test";
-import Chats from "./Dora_plate/screens/Clientcitizen/routes/Chats";
-import Contacts from "./Dora_plate/screens/Clientcitizen/routes/Contacts";
+import { StyleSheet, Text, View,Animated, Dimensions } from "react-native";
 import LoadingScreen from "./Dora_plate/components/TEST/Loading";
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator,TransitionSpecs, CardStyleInterpolators  } from '@react-navigation/stack';
+import CDashboard from "./Dora_plate/screens/Clientcitizen/Dashboard";
+import CMedikdrawer from "./Dora_plate/screens/Clientcitizen/Doradrawer";
 
-
+const Stack = createStackNavigator();
 export default function App() {
   return (
-    <View style={styles.container}>
-<LoadingScreen/>
-      <StatusBar style="auto" />
-    </View>
+
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Loading"   screenOptions={{
+          gestureEnabled: true,
+          gestureDirection: 'horizontal',
+          transitionSpec: {
+            open: TransitionSpecs.TransitionIOSSpec,
+            close: TransitionSpecs.TransitionIOSSpec,
+          },
+          cardStyleInterpolator: forShrink,
+        }}>
+        <Stack.Screen name="Loading" component={LoadingScreen} />
+        <Stack.Screen name="Dashboard" component={CMedikdrawer} />
+      </Stack.Navigator>
+    </NavigationContainer>
+
   );
 }
+const forFadeAndShrink = ({ current, next, layouts }) => {
+  return {
+    cardStyle: {
+      opacity: current.progress.interpolate({
+        inputRange: [0, 1],
+        outputRange: [0, 1],
+      }),
+      transform: [
+        {
+          scale: current.progress.interpolate({
+            inputRange: [0, 1],
+            outputRange: [0.8, 1],
+          }),
+        },
+      ],
+    },
+  };
+};
+
+
+const forShrink = ({ current, next, layouts }) => {
+  return {
+    cardStyle: {
+      opacity: current.progress,
+      transform: [
+        {
+          scale: current.progress.interpolate({
+            inputRange: [0, 1],
+            outputRange: [4, 1],
+          }),
+        },
+      ],
+    },
+  };
+};
+
+
+// Custom card style interpolator for circular shrinking animation
+const forCircularShrink = ({ current, layouts }) => {
+  const { width, height } = Dimensions.get('window');
+  const progress = Animated.multiply(current.progress, new Animated.Value(1));
+
+  const opacity = progress.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0, 1],
+  });
+
+  const transform = [
+    {
+      scale: progress.interpolate({
+        inputRange: [0, 1],
+        outputRange: [0, 1],
+      }),
+    },
+  ];
+
+  return {
+    cardStyle: {
+      opacity,
+      transform,
+      borderRadius: progress.interpolate({
+        inputRange: [0, 1],
+        outputRange: [Math.max(width, height), 0],
+      }),
+      overflow: 'hidden',
+    },
+  };
+};
 
 const styles = StyleSheet.create({
   container: {

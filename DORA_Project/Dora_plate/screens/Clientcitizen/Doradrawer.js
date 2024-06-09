@@ -15,7 +15,7 @@ function CMedikdrawer() {
   return (
     <View style={styles.container}>
       
-      <NavigationContainer >
+   
         <Drawer.Navigator
           drawerContent={(props) => <CustomDrawerContent {...props} />}
           drawerStyle={{ height: 50 }} 
@@ -23,7 +23,7 @@ function CMedikdrawer() {
           <Drawer.Screen name="HOME" component={CDashboard} />
           <Drawer.Screen name="Article" component={SettingsScreen} />
         </Drawer.Navigator>
-      </NavigationContainer>
+   
     </View>
   );
 }

@@ -5,14 +5,14 @@ import { ActivityIndicator } from 'react-native-paper';
 import * as Animatable from 'react-native-animatable';
 
 
-const LoadingScreen = () => {
+const LoadingScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <ActivityIndicator size="large" color="#0000ff" />
       <Text style={styles.welcomeText}>Welcome to DORA</Text>
       <Animatable.Text animation="pulse" iterationCount="infinite" style={styles.loadingText}>
       <Text style={styles.loadingText}>Loading, please wait...</Text>
- <Button title='Continue'   style={styles.Button}/> </Animatable.Text>
+ <Button title='Continue'  onPress = {() => navigation.navigate('Dashboard')} style={styles.Button}/> </Animatable.Text>
     </View>
   );
 };

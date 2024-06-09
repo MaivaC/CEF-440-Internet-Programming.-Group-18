@@ -12,14 +12,14 @@ import {
   Animated,
 } from "react-native";
 import Chomepage from "./routes/Hompage";
+import Profile from "./routes/Profile";
+import Chats from "./chat";
 
 
 function Homepage(){
 
 }
-function Profile(){
-    
-}
+
 
 function Message(){
     
@@ -56,6 +56,10 @@ export default function CDashboard() {
             } else if (route.name === "Profile") {
               iconName = focused ? "person" : "person";
             }
+            else if(route.name==="Prepare") {
+              iconName = focused ? "man" : "man";
+
+            }
             // Return the icon component
             return (
               <MaterialIcons name={iconName} size={45} color={"red"} /> // Use Ionicons or other icon library
@@ -71,6 +75,11 @@ export default function CDashboard() {
         <Tab.Screen
           name="Chats"
           options={{ headerShown: false }}
+          component={Chats}
+        />
+        <Tab.Screen
+          name="Prepare"
+          options={{ headerShown: false }}
           component={Message}
         />
         <Tab.Screen
@@ -78,7 +87,6 @@ export default function CDashboard() {
           options={{ headerShown: false }}
           component={Profile}
         />
-       
       </Tab.Navigator>
     </View>
   );

@@ -6,6 +6,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator,TransitionSpecs, CardStyleInterpolators  } from '@react-navigation/stack';
 import LoadingScreen from "../../../components/TEST/Loading";
 import CMedikdrawer from "../Doradrawer";
+import Csignup from "../../../authentication/action/signUp";
+import Csignin from "../../../authentication/action/login";
 
 
 const Stack = createStackNavigator();
@@ -24,6 +26,8 @@ export default function PageTransition() {
         }}>
         <Stack.Screen name="Loading" component={LoadingScreen} />
         <Stack.Screen name="Dashboard" component={CMedikdrawer} />
+        <Stack.Screen name="SignUp" component={Csignup} />
+        <Stack.Screen name="SignIn" component={Csignin} />
       </Stack.Navigator>
     </NavigationContainer>
 

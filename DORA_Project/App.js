@@ -8,14 +8,14 @@ import CDashboard from "./Dora_plate/screens/Clientcitizen/Dashboard";
 import CMedikdrawer from "./Dora_plate/screens/Clientcitizen/Doradrawer";
 import PageTransition from "./Dora_plate/screens/Clientcitizen/controller/PageTransitionController";
 import MessageContacts from "./Dora_plate/screens/Clientcitizen/displays/actions/MessageContact";
-import MessagingScreen from "./Telemedicineapp/Dashboardroutes/Messaging";
+
 import Csignup from "./Dora_plate/authentication/action/signUp";
 
 const Stack = createStackNavigator();
 export default function App() {
   return (
 <View style={styles.container}>
-<Csignup/>
+<Call/>
 </View>
 
   );

@@ -26,8 +26,7 @@ export default function PageTransition() {
         }}>
         <Stack.Screen name="Loading" component={LoadingScreen} />
         <Stack.Screen name="Dashboard" component={CMedikdrawer} />
-        <Stack.Screen name="SignUp" component={Csignup} />
-        <Stack.Screen name="SignIn" component={Csignin} />
+       
       </Stack.Navigator>
     </NavigationContainer>
 

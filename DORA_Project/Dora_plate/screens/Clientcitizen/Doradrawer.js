@@ -46,22 +46,32 @@ const CustomDrawerContent = ({ navigation }) => {
         {/* Your desired icon layout */}
      
         <TouchableOpacity style={styles.Buttonb}>
+        <View style={styles.iconContainer}>
+        <Icon name="profile" size={45} style={styles.icon} />
           <Text style={styles.Text}>Profile</Text>
+      
+        </View>
         </TouchableOpacity>
       
   
         <TouchableOpacity style={styles.Buttonb} onPress={() => navigation.navigate("Settings")}>
         <View style={styles.iconContainer}>
-        <Icon name="home" size={50} color="#fff" style={styles.icon} />
+        <Icon name="home" size={45} style={styles.icon} />
           <Text style={styles.Text}>Home</Text>
           </View>
         </TouchableOpacity>
         <TouchableOpacity style={styles.Buttonb} onPress={() => navigation.navigate("Settings")}>
+        <View style={styles.iconContainer}>
+        <Icon name="chats" size={45} style={styles.icon} />
           <Text style={styles.Text}> Chats</Text>
+          </View>
         </TouchableOpacity>
    
         <TouchableOpacity style={styles.Buttonb} onPress={() => navigation.navigate("Settings")}>
+        <View style={styles.iconContainer}>
+        <Icon name="donations" size={45} style={styles.icon} />
           <Text style={styles.Text}>Donations</Text>
+          </View>
         </TouchableOpacity>
         <TouchableOpacity style={styles.Buttonb} onPress={() => navigation.navigate("Settings")}>
           <Text style={styles.Text}> Prepare</Text>
@@ -90,8 +100,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   Text: {
-    fontSize: 40,
-    paddingTop: 15,
+    fontSize: 30,
+    paddingTop: 5,
+    color:"#fff",
+    
+
    
   },
   Text1: {
@@ -125,16 +138,18 @@ const styles = StyleSheet.create({
     marginLeft: 20,
   },
   Buttonb:{
-    backgroundColor:"#AA44FF",
+    backgroundColor:"#8b0000",
     padding:10,
-    paddingRight:5,
+    paddingRight:10,
     borderRadius:15,
     alignContent:"center",
     alignItems:"center",
     justifyContent:"center",
-    margin:0,
-    marginTop:5,
-    marginBottom:5
+    margin:15,
+    
+    
+  
+   
 
   },
   iconContainer: {
@@ -145,7 +160,8 @@ const styles = StyleSheet.create({
   },
   icon: {
 paddingBottom:0,
-color:"black"
+paddingRight:10,
+color:"white"
 
 
 

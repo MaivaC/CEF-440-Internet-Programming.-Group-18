@@ -15,7 +15,6 @@ function CMedikdrawer() {
   return (
     <View style={styles.container}>
       
-   
         <Drawer.Navigator
           drawerContent={(props) => <CustomDrawerContent {...props} />}
           drawerStyle={{ height: 50 }} 

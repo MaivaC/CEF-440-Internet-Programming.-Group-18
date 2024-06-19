@@ -14,9 +14,10 @@ import Csignup from "./Dora_plate/authentication/action/signUp";
 const Stack = createStackNavigator();
 export default function App() {
   return (
-<View style={styles.container}>
+
 <PageTransition/>
-</View>
+
+
 
   );
 }

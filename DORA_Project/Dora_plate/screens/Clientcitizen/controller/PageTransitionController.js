@@ -6,8 +6,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator,TransitionSpecs, CardStyleInterpolators  } from '@react-navigation/stack';
 import LoadingScreen from "../../../components/TEST/Loading";
 import CMedikdrawer from "../Doradrawer";
-import Csignup from "../../../authentication/action/signUp";
-import Csignin from "../../../authentication/action/login";
 
 
 const Stack = createStackNavigator();
@@ -22,7 +20,7 @@ export default function PageTransition() {
             open: TransitionSpecs.TransitionIOSSpec,
             close: TransitionSpecs.TransitionIOSSpec,
           },
-          cardStyleInterpolator: forShrink,
+          cardStyleInterpolator: forCircularShrink,
         }}>
         <Stack.Screen name="Loading" component={LoadingScreen} />
         <Stack.Screen name="Dashboard" component={CMedikdrawer} />

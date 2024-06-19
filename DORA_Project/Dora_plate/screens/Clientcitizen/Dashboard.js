@@ -62,7 +62,7 @@ export default function CDashboard() {
             }
             // Return the icon component
             return (
-              <MaterialIcons name={iconName} size={45} color={"red"} /> // Use Ionicons or other icon library
+              <MaterialIcons name={iconName} size={45} color={"#8b0000"} /> // Use Ionicons or other icon library
             );
           },
         })}

@@ -62,7 +62,7 @@ const CustomDrawerContent = ({ navigation }) => {
         </TouchableOpacity>
         <TouchableOpacity style={styles.Buttonb} onPress={() => navigation.navigate("Settings")}>
         <View style={styles.iconContainer}>
-        <Icon name="chats" size={45} style={styles.icon} />
+        <Icon name="chat" size={45} style={styles.icon} />
           <Text style={styles.Text}> Chats</Text>
           </View>
         </TouchableOpacity>
@@ -77,7 +77,10 @@ const CustomDrawerContent = ({ navigation }) => {
           <Text style={styles.Text}> Prepare</Text>
         </TouchableOpacity>
         <TouchableOpacity  style={styles.Buttonb} onPress={() => navigation.navigate("Settings")}>
+        <View style={styles.iconContainer}>
+        <Icon name="about" size={45} style={styles.icon} />
           <Text style={styles.Text}> About App</Text>
+          </View>
         </TouchableOpacity>
     
         {/* Add more icons as needed */}

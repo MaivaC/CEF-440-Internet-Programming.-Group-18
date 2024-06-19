@@ -4,17 +4,19 @@ import { StyleSheet, Text, View,Animated, Dimensions } from "react-native";
 import LoadingScreen from "./Dora_plate/components/TEST/Loading";
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator,TransitionSpecs, CardStyleInterpolators  } from '@react-navigation/stack';
+import CDashboard from "./Dora_plate/screens/Clientcitizen/Dashboard";
+import CMedikdrawer from "./Dora_plate/screens/Clientcitizen/Doradrawer";
+import PageTransition from "./Dora_plate/screens/Clientcitizen/controller/PageTransitionController";
+import MessageContacts from "./Dora_plate/screens/Clientcitizen/displays/actions/MessageContact";
 
-import MedicalCenterScreen from "./Dora_plate/screens/Clientcitizen/actions/Medicalcenter";
-import CallScreen from "./Dora_plate/screens/Clientcitizen/actions/call";
-import PaymentScreen from "./Dora_plate/screens/Clientcitizen/actions/Payment";
+import Csignup from "./Dora_plate/authentication/action/signUp";
 
 const Stack = createStackNavigator();
 export default function App() {
   return (
-<View style={styles.container}>
-<PaymentScreen/>
-</View>
+
+<PageTransition/>
+
 
   );
 }

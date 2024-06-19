@@ -11,7 +11,7 @@ import {
 
 
 
-const Csignup = () => {
+const Csignup = ({navigation}) => {
   const [email, setEmail] = useState();
   const [name, setName] = useState();
   const [username, setUsername] = useState();
@@ -70,7 +70,7 @@ const Csignup = () => {
         value={password}
         placeholder="Confirm Password"
       />
-      <TouchableOpacity style={styles.Button}><Text style={styles.Text2}>Create Account</Text></TouchableOpacity>
+      <TouchableOpacity style={styles.Button} onPress={() => navigation.navigate('SignIn')}><Text style={styles.Text2}>Create Account</Text></TouchableOpacity>
      </View> 
      
     </View>
@@ -113,7 +113,7 @@ fontWeight:"bold",
 
   },
   Button:{
-backgroundColor:"red",
+backgroundColor:"#990000",
 marginLeft:"14%",
 padding:10,
 width:200,

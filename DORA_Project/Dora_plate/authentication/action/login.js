@@ -11,7 +11,7 @@ import {
 } from "react-native";
 
 
-const Csignin = () => {
+const Csignin = ({navigation}) => {
   const [email, setEmail] = useState();
   const [name, setName] = useState();
   const [username, setUsername] = useState();
@@ -45,7 +45,7 @@ const Csignin = () => {
         placeholder="Password"
       />
 <TouchableOpacity><Text style={{marginLeft:"60%"}}>Forget Password?</Text></TouchableOpacity>
-<TouchableOpacity style={styles.button}><Text  style={styles.Text1}>Sign in</Text></TouchableOpacity>
+<TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Dashboard')}><Text  style={styles.Text1}>Sign in</Text></TouchableOpacity>
       
       <TouchableOpacity>
        <Text>You dont have an account?
@@ -111,7 +111,7 @@ marginTop:"10%"
   },
   Text3: {
  
-    color: "red",
+    color: "#990000",
     fontWeight:"bold",
     textAlign:"center"
  

@@ -59,7 +59,7 @@ paddingLeft:"0%"
     shape:{
         width:70,
         height:30,
-        backgroundColor:"red",
+        backgroundColor:"#990000",
         borderRadius:20,
         justifyContent:"center",
         alignItems:"center",
@@ -165,7 +165,7 @@ borderColor:"white",
         fontWeight:"bold"
       },
       Text3: {
-        color: "red",
+        color: "#990000",
         fontSize:20,
      marginLeft:"39%",
         justifyContent:"center",

@@ -7,12 +7,13 @@ import { createStackNavigator,TransitionSpecs, CardStyleInterpolators  } from '@
 
 import MedicalCenterScreen from "./Dora_plate/screens/Clientcitizen/actions/Medicalcenter";
 import CallScreen from "./Dora_plate/screens/Clientcitizen/actions/call";
+import PaymentScreen from "./Dora_plate/screens/Clientcitizen/actions/Payment";
 
 const Stack = createStackNavigator();
 export default function App() {
   return (
 <View style={styles.container}>
-<CallScreen/>
+<PaymentScreen/>
 </View>
 
   );

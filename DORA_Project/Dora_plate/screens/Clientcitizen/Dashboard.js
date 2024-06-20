@@ -14,6 +14,7 @@ import {
 import Chomepage from "./routes/Hompage";
 import Profile from "./routes/Profile";
 import Chats from "./chat";
+import PrepareScreen from "./actions/prepare";
 
 
 function Homepage(){
@@ -80,7 +81,7 @@ export default function CDashboard() {
         <Tab.Screen
           name="Prepare"
           options={{ headerShown: false }}
-          component={Message}
+          component={PrepareScreen}
         />
         <Tab.Screen
           name="Profile"

@@ -26,13 +26,13 @@ const PaymentScreen = () => {
         <Image source={require('./../assets/mtn.png')} style={styles.paymentIcon} />
         <Image source={require('./../assets/orange.png')} style={styles.paymentIcon} />
       </View>
-      <Text style={styles.label}>Enter Phone number or Card number</Text>
+      <Text style={styles.label1}>Enter Phone number or Card number</Text>
       <TextInput
         style={styles.input}
         keyboardType="numeric"
         value={cardNumber}
         onChangeText={setCardNumber}
-        placeholder="Enter number"
+        placeholder=""
       />
       <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>Make Payment</Text>
@@ -55,7 +55,12 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 16,
-    marginVertical: 10,
+    alignItems:"center",
+  },
+  label1: {
+    fontSize: 16,
+    alignItems:"center",
+    marginTop:40
   },
   amountContainer: {
     flexDirection: 'row',
@@ -79,14 +84,40 @@ const styles = StyleSheet.create({
   paymentMethods: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginVertical: 20,
+
+  
   },
   paymentIcon: {
     width: 50,
     height:40,
     justifyContent:"center",
-    alignItems:"center",
-    marginTop:"80%"
-}})
+
+
+}
+
+,
+input:{
+    marginTop:20,
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#900',
+    borderRadius: 5,
+    height:"8%",
+    marginBottom: 40,},
+buttonText:{
+ color:"#fff"
+},
+button:{
+    backgroundColor:"#990000",
+width:300,
+height:"6%"
+,
+alignItems:"center",
+justifyContent:"center"
+}
+
+
+})
 
     export default PaymentScreen;

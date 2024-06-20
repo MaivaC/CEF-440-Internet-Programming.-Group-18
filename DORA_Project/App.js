@@ -10,13 +10,22 @@ import PageTransition from "./Dora_plate/screens/Clientcitizen/controller/PageTr
 import MessageContacts from "./Dora_plate/screens/Clientcitizen/displays/actions/MessageContact";
 
 import Csignup from "./Dora_plate/authentication/action/signUp";
+import PaymentScreen from "./Dora_plate/screens/Clientcitizen/actions/Payment";
+import PaymentSuccessScreen from "./Dora_plate/screens/Clientcitizen/actions/paymentsuccessscreen";
+import PrepareScreen from "./Dora_plate/screens/Clientcitizen/actions/prepare";
+import EventpreparedScreen from "./Dora_plate/screens/Clientcitizen/actions/eventprepared";
+import About from "./Dora_plate/screens/Clientcitizen/displays/About";
+import MessageScreen from "./Dora_plate/screens/Clientcitizen/actions/message";
+import ShelterInfo from "./Dora_plate/screens/Clientcitizen/displays/actions/shelterInfo";
+import ShelterList from "./Dora_plate/screens/Clientcitizen/displays/shelter";
+import Guide from "./Dora_plate/screens/Clientcitizen/displays/survivalGuide";
+import ViewGuide from "./Dora_plate/screens/Clientcitizen/displays/actions/viewGuide";
 
 const Stack = createStackNavigator();
 export default function App() {
   return (
 
-<PageTransition/>
-
+<ViewGuide/>
 
   );
 }

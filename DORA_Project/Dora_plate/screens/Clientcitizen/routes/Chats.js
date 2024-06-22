@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Icon } from 'react-native-elements';
 
-const Chats = () => {
+const Chats = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.row}>
@@ -17,7 +17,7 @@ const Chats = () => {
           <Text style={styles.cardText}>Disaster</Text>
         </TouchableOpacity>
       </View>
-      <TouchableOpacity style={styles.fab}>
+      <TouchableOpacity style={styles.fab} onPress={() => navigation.navigate('Chats')}>
         <Icon name="plus" type="font-awesome" color="white" size={24} />
       </TouchableOpacity>
     </View>

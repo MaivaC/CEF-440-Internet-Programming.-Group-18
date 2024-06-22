@@ -12,7 +12,7 @@ const LoadingScreen = ({navigation}) => {
       <Text style={styles.welcomeText}>Welcome to DORA</Text>
       <Animatable.Text animation="pulse" iterationCount="infinite" style={styles.loadingText}>
       <Text style={styles.loadingText}>Loading, please wait...</Text>
- <Button title='Continue'  onPress = {() => navigation.navigate('Dashboard')} style={styles.Button}/> </Animatable.Text>
+ <Button title='Continue'  onPress = {() => navigation.navigate('SignIn')} style={styles.Button}/> </Animatable.Text>
     </View>
   );
 };

@@ -53,13 +53,13 @@ const CustomDrawerContent = ({ navigation }) => {
         </TouchableOpacity>
       
   
-        <TouchableOpacity style={styles.Buttonb} onPress={() => navigation.navigate("Settings")}>
+        <TouchableOpacity style={styles.Buttonb} onPress={() => navigation.navigate("Chat")}>
         <View style={styles.iconContainer}>
         <Icon name="home" size={45} style={styles.icon} />
           <Text style={styles.Text}>Home</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.Buttonb} onPress={() => navigation.navigate("Settings")}>
+        <TouchableOpacity style={styles.Buttonb} onPress={() => navigation.navigate("Chats")}>
         <View style={styles.iconContainer}>
         <Icon name="fa-comments" size={45} style={styles.icon} />
           <Text style={styles.Text}> Chats</Text>

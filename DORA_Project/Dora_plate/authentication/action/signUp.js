@@ -39,36 +39,42 @@ const Csignup = ({navigation}) => {
         ref={name}
         value={name}
         placeholder="Name"
+        required
       />
        <TextInput
         style={styles.TextInput}
         ref={age}
         value={age}
         placeholder="Age"
+        required
       />
       <TextInput
         style={styles.TextInput}
         ref={name}
         value={email}
         placeholder="E-mail"
+        required
       />
       <TextInput
         style={styles.TextInput}
         ref={name}
         value={username}
         placeholder="Phonenumber"
+        required
       />
       <TextInput
         style={styles.TextInput}
         ref={name}
         value={password}
         placeholder="Password"
+        required
       />
        <TextInput
         style={styles.TextInput}
         ref={name}
         value={password}
         placeholder="Confirm Password"
+        required
       />
       <TouchableOpacity style={styles.Button} onPress={() => navigation.navigate('SignIn')}><Text style={styles.Text2}>Create Account</Text></TouchableOpacity>
      </View> 

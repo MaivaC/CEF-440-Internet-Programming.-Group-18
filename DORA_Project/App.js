@@ -25,12 +25,14 @@ import ARescue from "./Dora_plate/screens/admins/displays/rescueinfo";
 import ALocation from "./Dora_plate/screens/admins/displays/location";
 import DisasterReport from "./Dora_plate/screens/admins/route/Report";
 import MapScreen from "./Dora_plate/screens/admins/displays/map";
-import MapScreen2 from "./Dora_plate/screens/admins/displays/test";
+import MapScreen2 from "./Dora_plate/screens/admins/test/test";
+import TMapScreen from "./Dora_plate/screens/admins/test/test2";
+import TApp from "./Dora_plate/screens/admins/test/test3";
 
 const Stack = createStackNavigator();
 export default function App() {
   return (
-<MapScreen2/>
+<TApp/>
   );
 }
 

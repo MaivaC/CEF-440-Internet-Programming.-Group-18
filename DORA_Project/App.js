@@ -20,13 +20,17 @@ import ShelterInfo from "./Dora_plate/screens/Clientcitizen/displays/actions/she
 import ShelterList from "./Dora_plate/screens/Clientcitizen/displays/shelter";
 import Guide from "./Dora_plate/screens/Clientcitizen/displays/survivalGuide";
 import ViewGuide from "./Dora_plate/screens/Clientcitizen/displays/actions/viewGuide";
+import Ahomepage from "./Dora_plate/screens/admins/route/homepage";
+import ARescue from "./Dora_plate/screens/admins/displays/rescueinfo";
+import ALocation from "./Dora_plate/screens/admins/displays/location";
+import DisasterReport from "./Dora_plate/screens/admins/route/Report";
+import MapScreen from "./Dora_plate/screens/admins/displays/map";
+import MapScreen2 from "./Dora_plate/screens/admins/displays/test";
 
 const Stack = createStackNavigator();
 export default function App() {
   return (
-
-<PageTransition/>
-
+<MapScreen2/>
   );
 }
 

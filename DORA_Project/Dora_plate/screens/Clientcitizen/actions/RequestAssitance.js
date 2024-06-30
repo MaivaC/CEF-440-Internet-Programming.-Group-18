@@ -1,11 +1,41 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 
 const Assistancepage = () => {
+
+  const handleCameraPress = () => {
+    launchCamera({}, response => {
+      if (response.didCancel) {
+        console.log('User cancelled image picker');
+      } else if (response.error) {
+        console.log('ImagePicker Error: ', response.error);
+      } else {
+        const source = { uri: response.uri };
+        console.log(source);
+        Alert.alert('Photo taken', JSON.stringify(response));
+      }
+    });
+  };
+
+  const handleGalleryPress = () => {
+    launchImageLibrary({}, response => {
+      if (response.didCancel) {
+        console.log('User cancelled image picker');
+      } else if (response.error) {
+        console.log('ImagePicker Error: ', response.error);
+      } else {
+        const source = { uri: response.uri };
+        console.log(source);
+        Alert.alert('Photo selected', JSON.stringify(response));
+      }
+    });
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.topContainer}>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={handleCameraPress}>
           <Image
             source={{ uri: 'https://img.icons8.com/ios-filled/50/000000/camera.png' }} // You can replace with local file if necessary
             style={styles.icon}
@@ -47,6 +77,7 @@ const styles = StyleSheet.create({
   button: {
     justifyContent: 'center',
     alignItems: 'center',
+    marginRight:167
   },
   icon: {
     width: 50,

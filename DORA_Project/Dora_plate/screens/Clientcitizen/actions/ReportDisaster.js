@@ -67,7 +67,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 20,
     elevation: 5,
-    width:"80%"
+    width:"80%",
+    marginLeft:40,
+    marginTop:90
   },
   header: {
     marginBottom: 20,

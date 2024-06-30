@@ -44,15 +44,13 @@ const Csignin = ({navigation}) => {
         value={password}
         placeholder="Password"
       />
-<TouchableOpacity><Text style={{marginLeft:"60%"}}>Forget Password?</Text></TouchableOpacity>
+<TouchableOpacity><Text style={{marginLeft:"50%"}}>Forget Password?</Text></TouchableOpacity>
 <TouchableOpacity style={styles.button}  onPress={() => navigation.navigate('Dashboard')} ><Text  style={styles.Text1}>Sign in</Text></TouchableOpacity>
       
-      <TouchableOpacity>
-       <Text>You dont have an account?
-       <Text style={styles.Text3}>Create an account</Text> </Text> 
-      </TouchableOpacity>
-
-     
+ 
+      <View style={{flexDirection:"row"}}><Text style={styles.Text4}>You dont have an account?</Text>
+<TouchableOpacity><Text style={styles.Text3}> Create an account</Text></TouchableOpacity>
+     </View> 
     </View>
   );
 };
@@ -72,7 +70,7 @@ const styles = StyleSheet.create({
   },
   
 button: {
-backgroundColor:"red",
+backgroundColor:"#990000",
  width:150,
 padding:10,
 alignContent:"center",
@@ -90,7 +88,7 @@ marginTop:"10%"
     justifyContent: "center",
     borderRadius:10,
     marginBottom: 20,
-    borderColor: 'red',
+    borderColor: '#990000',
     borderWidth: 1,
     padding:10,
 
@@ -111,8 +109,15 @@ marginTop:"10%"
   },
   Text3: {
  
-    color: "#990000",
+    color: "red",
     fontWeight:"bold",
+    textAlign:"center"
+ 
+  },
+  Text4: {
+ 
+
+
     textAlign:"center"
  
   },

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 
-const TApp = () => {
+const TAfpp = () => {
   const [selectedMarker, setSelectedMarker] = useState(null);
 
   const importantHouses = [
@@ -97,4 +97,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TApp;
+export default TAfpp;

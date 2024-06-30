@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Image, Button, StyleSheet, ScrollView } from 'react-native';
 import shelter from "../../assets/shelterinfo1.png"
-const ShelterInfo = () => {
+const ShelterInfo = ({navigation}) => {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Image

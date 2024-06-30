@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { View, Image, Button, StyleSheet } from 'react-native';
-import FastImage from 'react-native-fast-image';
+import { View, Button, StyleSheet } from 'react-native';
+import GifImage from 'react-native-gif';
 
-const Tpp = () => {
+const NApp = () => {
   const [showGif, setShowGif] = useState(false);
 
   const handleShowGif = () => {
@@ -14,13 +14,10 @@ const Tpp = () => {
     <View style={styles.container}>
       <Button title="Show GIF" onPress={handleShowGif} />
       {showGif && (
-        <FastImage
+        <GifImage
           style={styles.gif}
-          source={{
-            uri: 'https://media.giphy.com/media/l4FGuhL4U2WyjdkaY/giphy.gif',
-            priority: FastImage.priority.normal,
-          }}
-          resizeMode={FastImage.resizeMode.contain}
+          source={{ uri: 'https://media.giphy.com/media/l4FGuhL4U2WyjdkaY/giphy.gif' }}
+          resizeMode="contain"
         />
       )}
     </View>
@@ -40,4 +37,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Tpp;
+export default NApp;

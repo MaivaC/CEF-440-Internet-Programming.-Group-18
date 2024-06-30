@@ -17,7 +17,7 @@ const Chats = ({navigation}) => {
           <Text style={styles.cardText}>Disaster</Text>
         </TouchableOpacity>
       </View>
-      <TouchableOpacity style={styles.fab} onPress={() => navigation.navigate('Chats')}>
+      <TouchableOpacity style={styles.fab} onPress={() => navigation.navigate('contacts')}>
         <Icon name="plus" type="font-awesome" color="white" size={24} />
       </TouchableOpacity>
     </View>

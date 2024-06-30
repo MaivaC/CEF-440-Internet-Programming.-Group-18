@@ -1,9 +1,10 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
-
+import { View, Text, StyleSheet, ScrollView,Image} from 'react-native';
+import me1 from "../assets/Logo.png"
 const About = () => {
   return (
     <ScrollView contentContainerStyle={styles.container}>
+      <Image source={me1} width={5} height={5}/>
       <Text style={styles.text}>
         ResQ can empower users by providing them with critical information and resources before, during, and after a disaster.
       </Text>

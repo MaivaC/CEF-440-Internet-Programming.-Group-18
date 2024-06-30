@@ -14,7 +14,7 @@ import castle from "../assets/Castle.png"
 import row1 from "../assets/row1.png"
 import row2 from "../assets/row2.png"
 import row3 from "../assets/row3.png"
-const Chomepage = () => {
+const Chomepage = ({navigation}) => {
     return(
     <View style={styles.Container1}>
 
@@ -22,7 +22,7 @@ const Chomepage = () => {
     <Image source={map} alt="New Map" style={styles.image}/> 
     </View>
     <View style={styles.container1}><View style={styles.row}>
-    <View style={styles.row2}><Text style={styles.Text2}>NearBy Shelters</Text><Text style={styles.Text3}>Show All</Text></View>
+    <View style={styles.row2}><Text style={styles.Text2}>NearBy Shelters</Text><TouchableOpacity style={{marginLeft:80}}  onPress={() => navigation.navigate('Shelter')}><Text style={styles.Text3}>Show All</Text></TouchableOpacity></View>
     <View style={styles.row2}><TouchableOpacity style={styles.shape}><Text style={styles.shapecolor}>{'<'}3km</Text></TouchableOpacity>
     <TouchableOpacity style={styles.shape}><Text style={styles.shapecolor}>3-10km</Text></TouchableOpacity>
     <TouchableOpacity style={styles.shape}><Text style={styles.shapecolor}>{'>'}10km</Text></TouchableOpacity>
@@ -31,9 +31,10 @@ const Chomepage = () => {
    <Image source={castle} alt="NewCastle" style={styles.image2}/>
     
     </View>
+
    </View>
-    <View style={styles.container1}>
-    
+   <View><View style={styles.row2}><Text style={styles.Text4}>Survival Guide</Text><TouchableOpacity style={{marginLeft:70}}  onPress={() => navigation.navigate('Survival')}><Text style={styles.Text3}>Show All</Text></TouchableOpacity></View></View><View style={styles.container1}>
+  
 <View style={styles.head}>  
  <Image source={row1} style={styles.image3} alt="row1"/>
     <Image source={row2} style={styles.image3} alt="rowr"/>
@@ -51,7 +52,7 @@ const styles = StyleSheet.create({
     head:{
 width:"100%",
 flexDirection:"row",
-marginTop:"5%",
+marginTop:2,
 paddingLeft:"0%"
 
     },
@@ -162,7 +163,17 @@ borderColor:"white",
         fontSize:20,
         textAlign:"center",
         justifyContent:"center",
-        fontWeight:"bold"
+        fontWeight:"bold",
+        marginLeft:10
+      },
+
+      Text4: {
+        color: "black",
+        fontSize:20,
+        textAlign:"center",
+        justifyContent:"center",
+        fontWeight:"bold",
+        marginLeft:54
       },
       Text3: {
         color: "#990000",

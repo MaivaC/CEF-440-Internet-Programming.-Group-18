@@ -1,104 +1,112 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, Dimensions } from 'react-native';
-import MapView, { Marker, Circle } from 'react-native-maps';
+import { View, Text, StyleSheet } from 'react-native';
+import MapView, { Marker } from 'react-native-maps';
 
-// Import your custom marker image
-const customMarker = require('../assets/marker.png');
-
-const MapScreen = () => {
+const TApp = () => {
   const [selectedMarker, setSelectedMarker] = useState(null);
 
-  const region = {
-    latitude: 4.1582,
-    longitude: 9.2642,
-    latitudeDelta: 0.0922,
-    longitudeDelta: 0.0421,
-  };
-
-  const markers = [
-    { coordinate: { latitude: 4.1582, longitude: 9.2642 }, title: 'Marker 1', description: 'Description for Marker 1' },
-    { coordinate: { latitude: 4.1682, longitude: 9.2742 }, title: 'Marker 2', description: 'Description for Marker 2' },
-    { coordinate: { latitude: 4.1482, longitude: 9.2542 }, title: 'Marker 3', description: 'Description for Marker 3' },
-    // Add more markers as needed
+  const importantHouses = [
+    {
+      id: 1,
+      title: 'Kelma',
+      description: 'This your house ',
+      coordinate: { latitude: 37.78825, longitude: -122.4324 },
+    },
+    {
+      id: 2,
+      title: 'Therese',
+      description: 'This is house 2',
+      coordinate: { latitude: 37.78925, longitude: -122.4334 },
+    },
+    {
+        id: 3,
+        title: 'Jordan',
+        description: ' welocome',
+        coordinate: { latitude: 37.78725, longitude: -122.4334 },
+      },
+      {
+        id: 4,
+        title: 'Johnny',
+        description: ' welocome',
+        coordinate: { latitude: 37.78625, longitude: -122.4334 },
+      },
+    // Add more houses as needed
   ];
-
-  const handleMarkerPress = (marker) => {
-    setSelectedMarker(marker);
-  };
 
   return (
     <View style={styles.container}>
-      <MapView style={styles.map} initialRegion={region}>
-        <Circle
-          center={region}
-          radius={1000}
-          strokeColor="rgba(255,0,0,0.5)"
-          fillColor="rgba(255,0,0,0.3)"
-        />
-        {markers.map((marker, index) => (
+      <MapView
+        style={styles.map}
+        initialRegion={{
+          latitude: 37.78825,
+          longitude: -122.4324,
+          latitudeDelta: 0.0922,
+          longitudeDelta: 0.0421,
+        }}
+        mapType="satellite"
+        customMapStyle={mapStyle}
+      >
+        {importantHouses.map(house => (
           <Marker
-            key={index}
-            coordinate={marker.coordinate}
-            title={marker.title}
-            onPress={() => handleMarkerPress(marker)}
-            // Use the custom image for the marker
-            icon={customMarker}
-            styles={styles.marker}
+            key={house.id}
+            coordinate={house.coordinate}
+            title={house.title}
+            description={house.description}
+            onPress={() => setSelectedMarker(house.id)}
+            pinColor={selectedMarker === house.id ? 'blue' : 'red'} // Change color when selected
           />
         ))}
       </MapView>
       {selectedMarker && (
-        <View style={styles.overlay}>
-          <Text style={styles.name}>Name: <Text style={styles.bold}>John Smith</Text></Text>
-          <Text style={styles.userId}>User_ID: <Text style={styles.bold}>US001</Text></Text>
-          <Text style={styles.description}>{selectedMarker.description}</Text>
-          <Text style={styles.status}>Assisted</Text>
+        <View style={styles.markerDescription}>
+          <Text>{importantHouses.find(h => h.id === selectedMarker).description}</Text>
         </View>
       )}
     </View>
   );
 };
 
+const mapStyle = [
+  {
+    elementType: 'geometry',
+    stylers: [
+      {
+        color: '#f9f',
+      },
+    ],
+  },
+  {
+    elementType: 'labels.icon',
+    stylers: [
+      {
+        visibility: 'on',
+      },
+    ],
+  },
+  // Add more style elements as needed
+];
+
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-  },
-  marker:{
-width:90000,
-
+    ...StyleSheet.absoluteFillObject,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
   },
   map: {
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height,
+    ...StyleSheet.absoluteFillObject,
   },
-  overlay: {
+  markerDescription: {
     position: 'absolute',
     bottom: 50,
-    left: 10,
-    right: 10,
-    backgroundColor: 'rgba(255,255,255,0.8)',
+    backgroundColor: 'white',
     padding: 10,
     borderRadius: 10,
-  },
-  name: {
-    fontSize: 16,
-    marginBottom: 4,
-  },
-  userId: {
-    fontSize: 16,
-    marginBottom: 4,
-  },
-  description: {
-    fontSize: 16,
-    marginBottom: 4,
-  },
-  status: {
-    fontSize: 16,
-    color: 'green',
-  },
-  bold: {
-    fontWeight: 'bold',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 5,
   },
 });
 
-export default MapScreen;
+export default TApp;

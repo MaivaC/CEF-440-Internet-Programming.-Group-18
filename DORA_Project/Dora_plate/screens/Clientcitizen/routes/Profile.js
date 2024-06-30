@@ -7,9 +7,10 @@ import {
   StyleSheet,TextInput,
   ImageBackground
 } from "react-native";
-import image from "../assets/circularmap.png"
+
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { Avatar } from 'react-native-elements';
+import me1 from "../assets/profile23.png"
 
 const Profile = () =>{
     const renderProfileItem = (label, value) => {
@@ -26,6 +27,20 @@ const Profile = () =>{
           </View>
         );
       };
+      const renderProfileItem1 = (label, value) => {
+        return (
+          <View style={styles.itemContainer}>
+            <Text style={styles.label}>{label}</Text>
+            <View style={styles.valueContainer}>
+              <Text style={styles.value}>{value}</Text>
+              <TouchableOpacity style={styles.editButton}>
+              
+              </TouchableOpacity>
+            </View>
+            <View style={styles.separator} />
+          </View>
+        );
+      };
     
 return<View style={styles.Container1}>
 
@@ -34,21 +49,22 @@ return<View style={styles.Container1}>
 <Avatar
         size="xlarge"
         rounded
-        icon={{ name: 'user', type: 'font-awesome', color: 'black' }}
+       source={me1} 
         containerStyle={styles.avatar}
+        avatarStyle={styles.avatarImage}
       />
 
 </View>
 <View style={styles.Container3}> 
 
-      {renderProfileItem('NAME', 'Your Name')}
-      {renderProfileItem('AGE', 'Your Age')}
-      {renderProfileItem('E-MAIL', 'Your E-mail')}
-      {renderProfileItem('PHONE NUMBER', 'Your Phone Number')}
-      {renderProfileItem('SEX', 'Your Sex')}
-      {renderProfileItem('REGION', 'Your Region')}
-      {renderProfileItem('CITY', 'Your City')}
-      {renderProfileItem('STAKEHOLDER STATUS', 'Your Status')}
+      {renderProfileItem('NAME', 'Saam Fisher')}
+      {renderProfileItem('AGE', '25')}
+      {renderProfileItem('E-MAIL', 'samfisher@gmail.com')}
+      {renderProfileItem1('PHONE NUMBER', '650034378')}
+      {renderProfileItem1('SEX', 'Male')}
+      {renderProfileItem1('REGION', 'South West')}
+      {renderProfileItem1('CITY', 'Buea')}
+      {renderProfileItem1('STAKEHOLDER STATUS', 'User')}
 </View>
 
 </View>
@@ -113,7 +129,16 @@ container: {
 
   
   avatar: {
-    backgroundColor: '#C4C4C4',
+    borderWidth: 5, // Example border width
+    borderColor: '#fff',
+    width:250,
+    height:250
+   
+  },
+  avatarImage: {
+    marginTop:0,
+    borderRadius: 100, // Increase the radius to make it more rounded
+    resizeMode: 'cover',
   },
 
 })

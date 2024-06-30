@@ -1,16 +1,16 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet,TouchableOpacity  } from 'react-native';
+import { View, Text, Image, StyleSheet,TouchableOpacity,ScrollView  } from 'react-native';
 
 
-const Guide = () => {
+const Guide = ({navigation}) => {
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.title}>Natural Disasters</Text>
 
       <View style={styles.content1}>
     
       <View style={styles.disasterContainer}>
-         <TouchableOpacity><Image source={require('../assets/row1.png')} style={styles.disasterImage} /></TouchableOpacity> 
+         <TouchableOpacity onPress={() => navigation.navigate('Vguide')}><Image source={require('../assets/row1.png')} style={styles.disasterImage} /></TouchableOpacity> 
         <Text style={styles.disasterText}>Volcanic Eruption</Text>
       </View>
       <View style={styles.disasterContainer}>
@@ -42,13 +42,13 @@ const Guide = () => {
         <Text style={styles.disasterText}>Thunderstorm</Text>
       </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#fff',

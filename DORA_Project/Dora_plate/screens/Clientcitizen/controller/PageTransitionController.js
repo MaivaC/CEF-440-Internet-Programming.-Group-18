@@ -6,12 +6,29 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator,TransitionSpecs, CardStyleInterpolators  } from '@react-navigation/stack';
 import LoadingScreen from "../../../components/TEST/Loading";
 import CMedikdrawer from "../Doradrawer";
-import Chats from "../chat";
+import Chats, { CallScreen2 } from "../chat";
 import Csignup from "../../../authentication/action/signUp";
 import Csignin from "../../../authentication/action/login";
+import About from "../displays/About";
+import PrepareScreen from "../actions/prepare";
+import Profile from "../routes/Profile";
+import MessagingScreen from "../displays/actions/MessageContact";
+import MessageScreen from "../actions/message";
+import Chomepage from "../routes/Hompage";
+import PaymentScreen from "../actions/Payment";
+import PaymentSuccessScreen from "../actions/paymentsuccessscreen";
+import ShelterList from "../displays/shelter";
+import Guide from "../displays/survivalGuide";
+import ShelterInfo from "../displays/actions/shelterInfo";
+import ViewGuide from "../displays/actions/viewGuide";
+import EventpreparedScreen from "../actions/eventprepared";
+import Contacts from "../routes/Contacts";
+import CallScreen from "../actions/call";
+import Assistancepage from "../actions/RequestAssitance";
+import AssistanceForm from "../actions/ReportDisaster";
 
 
-const Stack = createStackNavigator();
+export const Stack = createStackNavigator();
 export default function PageTransition() {
   return (
 
@@ -23,15 +40,34 @@ export default function PageTransition() {
             open: TransitionSpecs.TransitionIOSSpec,
             close: TransitionSpecs.TransitionIOSSpec,
           },
-          cardStyleInterpolator: forCircularShrink,
+          cardStyleInterpolator: forFadeAndShrink,
         }}>
-        <Stack.Screen name="Loading" component={LoadingScreen} />
-        <Stack.Screen name="Dashboard" component={CMedikdrawer} />
-        <Stack.Screen name="Chats" component={Chats}/>
-        <Stack.Screen name="Signup" component={Csignup}/>
-        <Stack.Screen name="SignIn" component={Csignin}/>
+      <Stack.Screen name="Loading" component={LoadingScreen} />
+      <Stack.Screen name="Dashboard" component={CMedikdrawer} />
+      <Stack.Screen name="Chats" component={Chats}/>
+      <Stack.Screen name="Signup" component={Csignup}/>
+      <Stack.Screen name="SignIn" component={Csignin}/>
+      <Stack.Screen name="About" component={About} />
+      <Stack.Screen name="Prepare" component={PrepareScreen} />
+      <Stack.Screen name="Home" component={Chomepage}/>
+      <Stack.Screen name="Donation" component={PaymentScreen}/>
+      <Stack.Screen name="Chat" component={MessageScreen}/>
+      <Stack.Screen name="Profile" component={Profile}/>
+      <Stack.Screen name="success" component={PaymentSuccessScreen}/>
+      <Stack.Screen name="Shelter" component={ShelterList}/>
+      <Stack.Screen name="Survival" component={Guide}/>
+      <Stack.Screen name="Buea" component={ShelterInfo}/>
+      <Stack.Screen name="Vguide" component={ViewGuide}/>
+      <Stack.Screen name="Volcano" component={EventpreparedScreen}/>
+      <Stack.Screen name="contacts" component={Contacts}/>
+      <Stack.Screen name="call" component={CallScreen}/>
+      <Stack.Screen name="Assist" component={Assistancepage}/>
+        <Stack.Screen name="Disaster" component={AssistanceForm}/>
+      
+
        
       </Stack.Navigator>
+      
     </NavigationContainer>
 
   );

@@ -14,7 +14,6 @@ const Drawer = createDrawerNavigator();
 function CMedikdrawer() {
   return (
     <View style={styles.container}>
-      
         <Drawer.Navigator
           drawerContent={(props) => <CustomDrawerContent {...props} />}
           drawerStyle={{ height: 50 }} 
@@ -31,8 +30,12 @@ function CMedikdrawer() {
 
 
 ///Other important connective codes
-const CustomDrawerContent = ({ navigation }) => {
+const CustomDrawerContent = ({ navigation,route }) => {
+
+
   return (
+
+    
     <View style={{ flex: 1 }}>
       <View
         style={{
@@ -44,40 +47,40 @@ const CustomDrawerContent = ({ navigation }) => {
       >
         {/* Your desired icon layout */}
      
-        <TouchableOpacity style={styles.Buttonb}>
+        <TouchableOpacity style={styles.Buttonb} onPress={() => navigation.navigate("Profile")}>
         <View style={styles.iconContainer}>
-        <Icon name="fa-user" size={45} style={styles.icon} />
+      
           <Text style={styles.Text}>Profile</Text>
       
         </View>
         </TouchableOpacity>
       
   
-        <TouchableOpacity style={styles.Buttonb} onPress={() => navigation.navigate("Chat")}>
+        <TouchableOpacity style={styles.Buttonb} onPress={() => navigation.navigate("Home")}>
         <View style={styles.iconContainer}>
-        <Icon name="home" size={45} style={styles.icon} />
+
           <Text style={styles.Text}>Home</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.Buttonb} onPress={() => navigation.navigate("Chats")}>
+        <TouchableOpacity style={styles.Buttonb} onPress={() => navigation.navigate("Chat")}>
         <View style={styles.iconContainer}>
-        <Icon name="fa-comments" size={45} style={styles.icon} />
+
           <Text style={styles.Text}> Chats</Text>
           </View>
         </TouchableOpacity>
    
-        <TouchableOpacity style={styles.Buttonb} onPress={() => navigation.navigate("Settings")}>
+        <TouchableOpacity style={styles.Buttonb} onPress={() => navigation.navigate("Donation")}>
         <View style={styles.iconContainer}>
-        <Icon name="donations" size={45} style={styles.icon} />
+
           <Text style={styles.Text}>Donations</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.Buttonb} onPress={() => navigation.navigate("Settings")}>
+        <TouchableOpacity style={styles.Buttonb} onPress={() => navigation.navigate("Prepare")}>
           <Text style={styles.Text}> Prepare</Text>
         </TouchableOpacity>
-        <TouchableOpacity  style={styles.Buttonb} onPress={() => navigation.navigate("Settings")}>
+        <TouchableOpacity  style={styles.Buttonb} onPress={() => navigation.navigate("About")}>
         <View style={styles.iconContainer}>
-        <Icon name="about" size={45} style={styles.icon} />
+     
           <Text style={styles.Text}> About App</Text>
           </View>
         </TouchableOpacity>

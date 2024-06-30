@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
 
-const PaymentScreen = () => {
+const PaymentScreen = ({navigation}) => {
   const [amount, setAmount] = useState('');
   const [cardNumber, setCardNumber] = useState('');
 
@@ -34,8 +34,8 @@ const PaymentScreen = () => {
         onChangeText={setCardNumber}
         placeholder=""
       />
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Make Payment</Text>
+      <TouchableOpacity style={styles.button} >
+        <Text style={styles.buttonText} onPress={() => navigation.navigate('success')}>Make Payment</Text>
       </TouchableOpacity>
     </View>
   );
@@ -111,8 +111,10 @@ buttonText:{
 button:{
     backgroundColor:"#990000",
 width:300,
-height:"6%"
+height:"6%",
+borderRadius:10
 ,
+marginLeft:"8%",
 alignItems:"center",
 justifyContent:"center"
 }

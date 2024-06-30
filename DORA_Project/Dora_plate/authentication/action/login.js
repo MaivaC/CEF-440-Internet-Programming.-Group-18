@@ -49,7 +49,7 @@ const Csignin = ({navigation}) => {
       
  
       <View style={{flexDirection:"row"}}><Text style={styles.Text4}>You dont have an account?</Text>
-<TouchableOpacity><Text style={styles.Text3}> Create an account</Text></TouchableOpacity>
+<TouchableOpacity onPress={() => navigation.navigate('Signup')} ><Text style={styles.Text3}> Create an account</Text></TouchableOpacity>
      </View> 
     </View>
   );

@@ -62,7 +62,7 @@ export default function PageTransition() {
       <Stack.Screen name="contacts" component={Contacts}/>
       <Stack.Screen name="call" component={CallScreen}/>
       <Stack.Screen name="Assist" component={Assistancepage}/>
-        <Stack.Screen name="Disaster" component={AssistanceForm}/>
+      <Stack.Screen name="Disaster" component={AssistanceForm}/>
      
         
       

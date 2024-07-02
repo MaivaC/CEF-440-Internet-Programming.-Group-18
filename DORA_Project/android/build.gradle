@@ -1,4 +1,5 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+implementation project(':react-native-auth0')
 
 buildscript {
     ext {
@@ -17,6 +18,7 @@ buildscript {
     dependencies {
         classpath('com.android.tools.build:gradle')
         classpath('com.facebook.react:react-native-gradle-plugin')
+          classpath 'com.google.gms:google-services:4.3.3'
     }
 }
 
@@ -42,3 +44,4 @@ allprojects {
         maven { url 'https://www.jitpack.io' }
     }
 }
+

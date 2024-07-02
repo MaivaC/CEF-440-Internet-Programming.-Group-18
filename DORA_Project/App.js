@@ -26,16 +26,16 @@ import ALocation from "./Dora_plate/screens/admins/displays/location";
 import DisasterReport from "./Dora_plate/screens/admins/route/Report";
 import MapScreen from "./Dora_plate/screens/admins/displays/map";
 import MapScreen2 from "./Dora_plate/screens/admins/test/test";
-import TMapScreen from "./Dora_plate/screens/admins/test/test2";
-import TApp from "./Dora_plate/screens/admins/displays/map";
-import Tmessage from "./Dora_plate/screens/Emergencyresponders/route/response";
+
+
+import FApp from "./Dora_plate/authentication/configurations/test";
 
 
 
 const Stack = createStackNavigator();
 export default function App() {
   return (
-<PageTransition/>
+<FApp/>
   );
 }
 

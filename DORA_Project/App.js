@@ -9,6 +9,7 @@ import CMedikdrawer from "./Dora_plate/screens/Clientcitizen/Doradrawer";
 import PageTransition from "./Dora_plate/screens/Clientcitizen/controller/PageTransitionController";
 import MessageContacts from "./Dora_plate/screens/Clientcitizen/displays/actions/MessageContact";
 
+
 import Csignup from "./Dora_plate/authentication/action/signUp";
 import PaymentScreen from "./Dora_plate/screens/Clientcitizen/actions/Payment";
 import PaymentSuccessScreen from "./Dora_plate/screens/Clientcitizen/actions/paymentsuccessscreen";
@@ -26,16 +27,18 @@ import ALocation from "./Dora_plate/screens/admins/displays/location";
 import DisasterReport from "./Dora_plate/screens/admins/route/Report";
 import MapScreen from "./Dora_plate/screens/admins/displays/map";
 import MapScreen2 from "./Dora_plate/screens/admins/test/test";
-
-
-import FApp from "./Dora_plate/authentication/configurations/test";
+import TMapScreen from "./Dora_plate/screens/admins/test/test2";
+import TApp from "./Dora_plate/screens/admins/displays/map";
+import Tmessage from "./Dora_plate/screens/Emergencyresponders/route/response";
+import Avpp from "./Dora_plate/components/TEST/Advert";
+import SwipeComponent from "./Dora_plate/components/TEST/Swipe";
 
 
 
 const Stack = createStackNavigator();
 export default function App() {
   return (
-<FApp/>
+<PageTransition/>
   );
 }
 

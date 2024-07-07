@@ -1,37 +1,118 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 
-const TApp = () => {
-  const [selectedMarker, setSelectedMarker] = useState(null);
 
-  const importantHouses = [
-    {
-      id: 1,
-      title: 'Kelma',
-      description: 'This your house ',
-      coordinate: { latitude: 37.78825, longitude: -122.4324 },
+
+const importantHouses = [
+  {
+    id: 1,
+    title: 'Buea Town House',
+    description: 'A very wide and good  shelter ',
+    coordinate: { latitude: 37.78825, longitude: -122.4324 },
+    color:'blue',
+  },
+  {
+    id: 2,
+    title: 'Buea Town Staduim',
+    description: 'Good Public shelter',
+    coordinate: { latitude: 37.78925, longitude: -122.4334 },
+    color:'blue',
+  },
+  {
+      id: 3,
+      title: ' Monument',
+      description: ' Get Ready to be procted',
+      coordinate: { latitude: 37.78735, longitude: -122.4334 },
+      color:'blue',
     },
     {
-      id: 2,
-      title: 'Therese',
-      description: 'This is house 2',
-      coordinate: { latitude: 37.78925, longitude: -122.4334 },
+      id: 4,
+      title: 'Johnny',
+      description: ' Here Is your position ',
+      coordinate: { latitude: 37.78645, longitude: -122.4334 },
+      color:'red',
     },
     {
-        id: 3,
-        title: 'Jordan',
-        description: ' welocome',
-        coordinate: { latitude: 37.78725, longitude: -122.4334 },
+      id: 5,
+      title: 'Kelma Gifty',
+      description: 'Emergency Respondant agent(fire)',
+      coordinate: { latitude: 37.78855, longitude: -122.4324 },
+      color:'black',
+    },
+    {
+      id: 6,
+      title: 'Shelters',
+      description: 'Unviversity Buea',
+      coordinate: { latitude: 37.78975, longitude: -122.4334 },
+    },
+    {
+        id: 7,
+        title: 'Jordan spikes',
+        description: 'Emergency Respondant',
+        coordinate: { latitude: 37.79975, longitude: -122.4334 },
+        color:'black',
       },
       {
-        id: 4,
-        title: 'Johnny',
-        description: ' welocome',
-        coordinate: { latitude: 37.78625, longitude: -122.4334 },
-      },
+        id: 8,
+        title: 'Johnny Ronston',
+        description: ' Family',
+        coordinate: { latitude: 37.78825, longitude: -122.4334 },
+        color:'#ff8',
+      }
+    ];
+
+const TApp = () => {
+  const [selectedMarker, setSelectedMarker] = useState(null);
+  
+  const [houses, setHouses] = useState(importantHouses);
+
+  useEffect(() => {
+    const distance = 0.018; // Roughly 2 km in latitude or longitude degrees
+    let movingUp = true;
+    let movingRight = true;
+
+    const updateCoordinates = () => {
+      setHouses((prevHouses) =>
+        prevHouses.map((house, index) => {
+          if (index === 0 || index === 1) {
+            // Move upward
+            let newLat = house.coordinate.latitude + (movingUp ? 0.0001 : -0.0001);
+            if (Math.abs(newLat - house.coordinate.latitude) >= distance) {
+              movingUp = !movingUp;
+              newLat = house.coordinate.latitude;
+            }
+            return {
+              ...house,
+              coordinate: { latitude: newLat, longitude: house.coordinate.longitude },
+            };
+          } else if (index === 2) {
+            // Move horizontally
+            let newLng = house.coordinate.longitude + (movingRight ? 0.0001 : -0.0001);
+            if (Math.abs(newLng - house.coordinate.longitude) >= distance) {
+              movingRight = !movingRight;
+              newLng = house.coordinate.longitude;
+            }
+            return {
+              ...house,
+              coordinate: { latitude: house.coordinate.latitude, longitude: newLng },
+            };
+          }
+          return house;
+        })
+      );
+    };
+
+    const interval = setInterval(updateCoordinates, 100);
+
+    // Cleanup interval on component unmount
+    return () => clearInterval(interval);
+  }, []);
+      // Add more houses as needed
     // Add more houses as needed
-  ];
+      // Add more houses as needed
+    // Add more houses as needed
+
 
   return (
     <View style={styles.container}>
@@ -53,7 +134,7 @@ const TApp = () => {
             title={house.title}
             description={house.description}
             onPress={() => setSelectedMarker(house.id)}
-            pinColor={selectedMarker === house.id ? 'blue' : 'red'} // Change color when selected
+            pinColor={selectedMarker === house.id ? 'blue' : house.color} // Change color when selected
           />
         ))}
       </MapView>

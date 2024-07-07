@@ -4,27 +4,27 @@ import me2 from "../assets/alert.png"
 import me1 from "../assets/feedback.png"
 import me3 from "../assets/response.png"
 import me4 from "../assets/target.png"
-const Ahomepage = () => {
+const Ahomepage = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.greeting}>Hello Admin 01</Text>
+      <Text style={styles.greeting}>Hello Mr  Admin</Text>
       <Text style={styles.question}>Which operation will you like to perform?</Text>
       <View style={styles.row}>
-        <TouchableOpacity style={styles.card}>
+        <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('rescue')}>
           <Image source={me1} style={styles.icon} />
           <Text style={styles.label}>Feedback</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.card}>
+        <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('location')}>
           <Image source={me2} style={styles.icon} />
           <Text style={styles.label}>Alert Disaster</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.row}>
-        <TouchableOpacity style={styles.card}>
+        <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('report')}>
           <Image source={me3} style={styles.icon} />
           <Text style={styles.label}>View Report</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.card}>
+        <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('alert')}>
           <Image source={me4} style={styles.icon} />
           <Text style={styles.label}>Coordinate Response</Text>
         </TouchableOpacity>
@@ -49,11 +49,11 @@ const styles = StyleSheet.create({
   question: {
     fontSize: 18,
     color: 'red',
-    marginBottom: 150,
+    marginBottom: 90,
   },
   row: {
     flexDirection: 'row',
-    marginBottom: 20,
+    marginBottom: 10,
     
   },
   card: {

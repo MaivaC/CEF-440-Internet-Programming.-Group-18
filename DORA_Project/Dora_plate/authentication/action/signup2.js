@@ -13,7 +13,7 @@ import { registerUser } from '../../services/apiservice';
 import Logo from "../styles/loginstyle";
 
 
-const Csignup = ({navigation}) => {
+const Csignup2 = ({navigation}) => {
  
 
   const [visible, setVisble] = useState(true);
@@ -107,7 +107,7 @@ Insert()
         style={styles.TextInput}
         onChangeText={(value) => handleChange('Address', value)}
         value={formData.Address}
-        placeholder="Address"
+        placeholder="Organisation"
         required
       /><TextInput
         style={styles.TextInput}
@@ -201,7 +201,7 @@ justifyContent:"center"
   }
 });
 
-export default Csignup;
+export default Csignup2;
 
 /*const Checkbox = ({ label, isChecked, onPress }) => {
   const checkmark = isChecked ? '☑' : '☐';

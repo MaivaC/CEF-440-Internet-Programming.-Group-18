@@ -72,8 +72,11 @@ export function ALocation() {
           source={me1} 
         />
       </View>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={()=>{alert("Alert sent with success")}}> 
         <Text style={styles.buttonText}>Send Alert</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate('map')}} >
+        <Text style={styles.buttonText}>View Map</Text>
       </TouchableOpacity>
     </ScrollView>
   );

@@ -1,4 +1,4 @@
-import react, { useState } from "react";
+import react, { useState,useEffect,useRef } from "react";
 import {
   Text,
   Image,
@@ -7,19 +7,84 @@ import {
   StyleSheet,
   TextInput,
   Button,
-  ScrollView
+  Dimensions,
+  ScrollView,
+  Animated,
+   Easing
 } from "react-native";
 import map from "../assets/map1.png"
 import castle from "../assets/Castle.png"
 import row1 from "../assets/row1.png"
 import row2 from "../assets/row2.png"
 import row3 from "../assets/row3.png"
+import TApp from "../../admins/displays/map";
+
+
+import me1 from "../assets/Buea1.png"
+import me2 from "../assets/landslide.png"
+import me3 from "../assets/thunder.png"
+
+const Images = [
+  row1,row2,row3,me3 // Replace with your image paths
+]
+
 const Chomepage = ({navigation}) => {
+
+  const [currentImages, setCurrentImages] = useState(Images);
+  const animatedValue = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    // Vibration animation
+    const animate = () => {
+      Animated.sequence([
+        Animated.timing(animatedValue, {
+          toValue: 1,
+          duration: 10000,
+          easing: Easing.linear,
+          useNativeDriver: true,
+        }),
+        Animated.timing(animatedValue, {
+          toValue: -1,
+          duration: 10000,
+          easing: Easing.linear,
+          useNativeDriver: true,
+        }),
+      ]).start(() => {
+        animate();
+      });
+    };
+    animate();
+
+    // Change images after 2 minutes
+    const imageChangeInterval = setInterval(() => {
+      setCurrentImages(newImages);
+    }, 2 * 720 * 1000);
+
+    return () => clearInterval(imageChangeInterval);
+  }, []);
+
+  const animatedStyle = {
+    transform: [
+      {
+        translateX: animatedValue.interpolate({
+          inputRange: [-1, 1],
+          outputRange: [-80, 80],
+        }),
+      },
+    ],
+  };
+
+
+
+
+
+
     return(
     <View style={styles.Container1}>
 
     <View style={styles.container2}>
-    <Image source={map} alt="New Map" style={styles.image}/> 
+<TApp/>
+    
     </View>
     <View style={styles.container1}><View style={styles.row}>
     <View style={styles.row2}><Text style={styles.Text2}>NearBy Shelters</Text><TouchableOpacity style={{marginLeft:80}}  onPress={() => navigation.navigate('Shelter')}><Text style={styles.Text3}>Show All</Text></TouchableOpacity></View>
@@ -28,7 +93,7 @@ const Chomepage = ({navigation}) => {
     <TouchableOpacity style={styles.shape}><Text style={styles.shapecolor}>{'>'}10km</Text></TouchableOpacity>
    </View> 
   
-   <Image source={castle} alt="NewCastle" style={styles.image2}/>
+<Avpp/>
     
     </View>
 
@@ -36,9 +101,9 @@ const Chomepage = ({navigation}) => {
    <View><View style={styles.row2}><Text style={styles.Text4}>Survival Guide</Text><TouchableOpacity style={{marginLeft:70}}  onPress={() => navigation.navigate('Survival')}><Text style={styles.Text3}>Show All</Text></TouchableOpacity></View></View><View style={styles.container1}>
   
 <View style={styles.head}>  
- <Image source={row1} style={styles.image3} alt="row1"/>
-    <Image source={row2} style={styles.image3} alt="rowr"/>
-    <Image  source={row3} style={styles.image3} alt="row1"/>
+{currentImages.map((image, index) => (
+            <Animated.Image key={index} source={image} style={[styles.image3, animatedStyle]} alt={`row${index + 1}`} />
+          ))}
     </View>
   
     </View>
@@ -182,6 +247,66 @@ borderColor:"white",
         justifyContent:"center",
         fontWeight:"bold"
       },
+      text: {
+        marginTop: 40,
+        fontSize: 36,
+        color:"white",
+        textAlign: 'center',
+      },
+      container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#990000',
+      },
   });
 
 export default Chomepage
+
+
+
+
+const images = [
+  {
+    source: me1 , // Replace with actual image URLs
+    text: 'Stay informed with real-time alerts during disasters.',
+  },
+  {
+    source:  me2 ,
+    text: 'Connect with the community and find lost items.',
+  },
+  {
+    source:  me3 ,
+    text: 'Access vital resources and emergency information.',
+  },
+];
+const { width } = Dimensions.get('window');
+
+const ImageSlide = ({ image, text }) => (
+  <View style={styles.slide}>
+    <Image source={image} style={styles.image2} />
+ 
+
+  </View>
+);
+
+const Avpp = ({navigation}) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
+   
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <View >
+      <ImageSlide image={images[currentIndex].source} text={images[currentIndex].text} />
+    <TouchableOpacity style={{height:40,justifyContent:"center",marginTop:50}}><Text style={{color:"white"}} ></Text></TouchableOpacity>
+    <Button title="CONTINUE" onPress={() => navigation.navigate('SignIn')} />
+
+    </View>
+  );
+};

@@ -9,14 +9,15 @@ import {
   TextInput,
   Button,
 } from "react-native";
+import { loginUser } from "../../services/apiservice";
+import Logo from "../styles/loginstyle";
 
 
 const Csignin = ({navigation}) => {
-  const [email, setEmail] = useState();
-  const [name, setName] = useState();
-  const [username, setUsername] = useState();
-  const [password, setPassword] = useState();
-  const [isChecked, setIsChecked] = useState();
+
+
+const [Email,setEmail] = useState()
+const [Password,setPassword] = useState()
   const [visible, setVisble] = useState(true);
 
   handleclick = () => {
@@ -26,36 +27,87 @@ const Csignin = ({navigation}) => {
     setVisble(false);
   };
 
+  const [credentials, setCredentials] = useState({
+    Email:'nasoa@gmail.com',
+    Password:'robert'
+});
+
+const handleChange = (name,value) => {
+    setCredentials({
+        ...credentials,
+        [name]: value
+    });
+};
+const navi=()=>{
+   navigation.navigate('Dashboard')
+}
+
+ console.log("The Email is",credentials.Email,"and the password is ",credentials.Password)
+const handleSubmit = async (e) => {
+  
+    e.preventDefault();
+    try {
+        const response = await loginUser(credentials);
+        console.log(response);
+       
+        if (response.accessToken) {
+            alert('Login successful! Welcome to RESQ');
+            navi()
+            // Store token in local storage or state management
+            localStorage.setItem('accessToken', response.accessToken);
+            
+            // Redirect to protected page if necessary
+        } else {
+            alert(response.error);
+            console.log("hi")
+        }
+    } catch (error) {
+       
+    }
+};
+
+
   return (
     <View style={styles.Container1}>
-      
-      <Text style={styles.Text}>SIGN IN</Text>
-     
+     <Text style={styles.Text}>SIGN IN</Text>
 
+     <Logo/>
+     
       <TextInput
         style={styles.TextInput}
-        ref={name}
-        value={email}
-        placeholder="Enter your E-mail or Phone number"
+        onChangeText={(value) => handleChange('Email', value)}
+        value={credentials.Email}
+        required
+        placeholder="Enter your E-mail"
       />
 <TextInput
         style={styles.TextInput}
-        ref={name}
-        value={password}
+        onChangeText={(value) => handleChange('Password', value)}
+        value={credentials.Password}
+        required
         placeholder="Password"
       />
-<TouchableOpacity><Text style={{marginLeft:"50%"}}>Forget Password?</Text></TouchableOpacity>
-<TouchableOpacity style={styles.button}  onPress={() => navigation.navigate('Dashboard')} ><Text  style={styles.Text1}>Sign in</Text></TouchableOpacity>
-      
- 
+<TouchableOpacity><Text style={{marginLeft:"50%"}}>Forget Password?</Text></TouchableOpacity><TouchableOpacity style={styles.button}  onPress={navi} ><Text  style={styles.Text1}>Sign in</Text></TouchableOpacity>
       <View style={{flexDirection:"row"}}><Text style={styles.Text4}>You dont have an account?</Text>
-<TouchableOpacity onPress={() => navigation.navigate('Signup')} ><Text style={styles.Text3}> Create an account</Text></TouchableOpacity>
-     </View> 
+<TouchableOpacity onPress={() => navigation.navigate('swipe')} ><Text style={styles.Text3}> Create an account</Text></TouchableOpacity>
+    <View>
+
+     </View></View> 
+     <Text style={styles.description}>Swipe right for  Emergency Agents</Text>
+
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  description: {
+    fontSize: 18,
+    fontWeight:"bold"
+,
+marginTop:80,
+   textAlign:"center",
+
+  },
   Container1: {
     flex: 1,
     backgroundColor: "white",

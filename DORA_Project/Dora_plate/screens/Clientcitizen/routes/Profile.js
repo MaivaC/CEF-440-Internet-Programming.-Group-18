@@ -57,9 +57,9 @@ return<View style={styles.Container1}>
 </View>
 <View style={styles.Container3}> 
 
-      {renderProfileItem('NAME', 'Saam Fisher')}
-      {renderProfileItem('AGE', '25')}
-      {renderProfileItem('E-MAIL', 'samfisher@gmail.com')}
+      {renderProfileItem('NAME', 'Robert Ndive')}
+      {renderProfileItem('AGE', '27')}
+      {renderProfileItem('E-MAIL', 'Kizdarospecial@gmail.com')}
       {renderProfileItem1('PHONE NUMBER', '650034378')}
       {renderProfileItem1('SEX', 'Male')}
       {renderProfileItem1('REGION', 'South West')}

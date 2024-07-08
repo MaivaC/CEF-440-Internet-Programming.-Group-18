@@ -5,6 +5,6 @@
 # DORA application development by TEAM 18
 # Lead Developer:Mondoa Robert
 # Lead Designer: Lonchi Jordan
-# Backend Developer:Metgne Kamgna
-# Frontend Developers: Therese Blessed &  Kelma Gifty
+# Frontend Developer:Metgne Kamgna
+# Researchers: Therese Blessed &  Kelma Gifty
 
